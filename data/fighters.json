@@ -8,20 +8,6 @@
       "cpf": "12345678900"
     },
     {
-      "id": 8,
-      "name": "Test User 9ck6gn",
-      "email": "test.9ck6gn@example.com",
-      "password": "$2b$10$b1Q/23c.skD6sLexqVwr0.AYEB3PP2VBxjNQUX5/cw7FNIBLqMNs6",
-      "cpf": "51645547809"
-    },
-    {
-      "id": 9,
-      "name": "Test User tqfms7",
-      "email": "test.tqfms7@example.com",
-      "password": "$2b$10$9892A42LGKBkzBoM2EA.meizZGsS2sYLb.wTZ7oLtNwxsT2QKewKS",
-      "cpf": "91929812752"
-    },
-    {
       "id": 10,
       "name": "Test User no6444",
       "email": "test.no6444@example.com",
@@ -342,6 +328,13 @@
       "email": "test.eyculq@example.com",
       "password": "$2b$10$dlX..iNJzfkvQRZDk1wSP.giTATQyo35dS4HpBp.bJIK6UUTIyrEa",
       "cpf": "58733347069"
+    },
+    {
+      "id": 50,
+      "name": "Test User 0rgj7e",
+      "email": "test.0rgj7e@example.com",
+      "password": "$2b$10$XGL0TAoJcUW0Tg3B5bMZb.QYfgSF1qkORk9NJRe6c.fiV3.gl8Il6",
+      "cpf": "42881065406"
     }
   ],
   "fighters": [
@@ -605,6 +598,87 @@
       "nationality": "Brazilian",
       "specialty": "Striking",
       "record": "34-11-0"
+    },
+    {
+      "id": 30,
+      "name": "Anderson Silva",
+      "image": "anderson_silva.jpg",
+      "weightClass": "Middleweight",
+      "nationality": "Brazilian",
+      "specialty": "Striking",
+      "record": "34-11-0"
+    },
+    {
+      "id": 31,
+      "name": "Leroy Mayert",
+      "image": "default-fighter.png",
+      "weightClass": "Peso Pena",
+      "nationality": "Angola",
+      "specialty": "Alone Again (Naturally)",
+      "record": "0-0-0"
+    },
+    {
+      "id": 32,
+      "name": "teste",
+      "image": "default-fighter.png",
+      "weightClass": "Peso Pena",
+      "nationality": "teste",
+      "specialty": "teste1",
+      "record": "111"
+    },
+    {
+      "id": 33,
+      "name": "Jennifer Wilderman I",
+      "image": "default-fighter.png",
+      "weightClass": "Peso Pena",
+      "nationality": "Finland",
+      "specialty": "Theme From 'Greatest American Hero' (Believe It Or Not)",
+      "record": "0-0-0"
+    },
+    {
+      "id": 34,
+      "name": "teste",
+      "image": "default-fighter.png",
+      "weightClass": "Peso Pena",
+      "nationality": "teste",
+      "specialty": "teste1",
+      "record": "111"
+    },
+    {
+      "id": 35,
+      "name": "Steven Schimmel",
+      "image": "default-fighter.png",
+      "weightClass": "Peso Pena",
+      "nationality": "Syrian Arab Republic",
+      "specialty": "Use Somebody",
+      "record": "0-0-0"
+    },
+    {
+      "id": 36,
+      "name": "Lillian Maggio",
+      "image": "default-fighter.png",
+      "weightClass": "Peso Pena",
+      "nationality": "Senegal",
+      "specialty": "Footloose",
+      "record": "0-0-0"
+    },
+    {
+      "id": 37,
+      "name": "Jerry Kohler",
+      "image": "default-fighter.png",
+      "weightClass": "Peso Pena",
+      "nationality": "Tonga",
+      "specialty": "Whole Lotta Shakin' Goin' On",
+      "record": "0-0-0"
+    },
+    {
+      "id": 38,
+      "name": "Myra Nicolas DVM",
+      "image": "default-fighter.png",
+      "weightClass": "Peso Pena",
+      "nationality": "Luxembourg",
+      "specialty": "We Didn't Start the Fire",
+      "record": "0-0-0"
     }
   ]
 }

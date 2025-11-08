@@ -1,0 +1,1411 @@
+{
+	"info": {
+		"_postman_id": "12e856b9-c78e-4c86-8efb-b19fea321492",
+		"name": "Fighters API",
+		"description": "API for managing fighters and users with JWT authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6768031"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List all users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Get a list of all registered users"
+					},
+					"response": [
+						{
+							"name": "List of users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 6159,\n    \"name\": \"string\",\n    \"email\": \"gMliNKySOj@TpsxSIhRTfWeQaDiTyZmaTw.do\",\n    \"cpf\": \"string\"\n  },\n  {\n    \"id\": 2153,\n    \"name\": \"string\",\n    \"email\": \"vmF@FQkOCOiLtPXG.zas\",\n    \"cpf\": \"string\"\n  }\n]"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Register a new user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"string\",\n  \"email\": \"etR@GRLlV.ed\",\n  \"password\": \"stringstring\",\n  \"cpf\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						},
+						"description": "Create a new admin user"
+					},
+					"response": [
+						{
+							"name": "User created successfully",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string\",\n  \"email\": \"etR@GRLlV.ed\",\n  \"password\": \"stringstring\",\n  \"cpf\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Invalid input data",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string\",\n  \"email\": \"etR@GRLlV.ed\",\n  \"password\": \"stringstring\",\n  \"cpf\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Login user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"iCq@EUrmnMSkvKaLXqzCaSYsppnFO.egay\",\n  \"password\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						},
+						"description": "Authenticate user and get JWT token"
+					},
+					"response": [
+						{
+							"name": "Login successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"iCq@EUrmnMSkvKaLXqzCaSYsppnFO.egay\",\n  \"password\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"token\": \"string\"\n}"
+						},
+						{
+							"name": "Invalid credentials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"iCq@EUrmnMSkvKaLXqzCaSYsppnFO.egay\",\n  \"password\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Search users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/search?email=string&cpf=string",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"search"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "string",
+									"description": "Email to search for"
+								},
+								{
+									"key": "cpf",
+									"value": "string",
+									"description": "CPF to search for"
+								}
+							]
+						},
+						"description": "Search for users by email or CPF"
+					},
+					"response": [
+						{
+							"name": "User found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/search?email=string&cpf=string",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"search"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "string",
+											"description": "Email to search for"
+										},
+										{
+											"key": "cpf",
+											"value": "string",
+											"description": "CPF to search for"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 2108,\n  \"name\": \"string\",\n  \"email\": \"vDRjycjV3UhdK@HzVJVbJCJyVfub.hcr\",\n  \"cpf\": \"string\"\n}"
+						},
+						{
+							"name": "User not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/search?email=string&cpf=string",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"search"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "string",
+											"description": "Email to search for"
+										},
+										{
+											"key": "cpf",
+											"value": "string",
+											"description": "CPF to search for"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"string\",\n  \"email\": \"j7l6@pBwfEjbeZtrQMprotujjUubUSoPel.jsbu\",\n  \"password\": \"stringstring\",\n  \"cpf\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8346",
+									"description": "User ID"
+								}
+							]
+						},
+						"description": "Update user information"
+					},
+					"response": [
+						{
+							"name": "User updated successfully",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string\",\n  \"email\": \"j7l6@pBwfEjbeZtrQMprotujjUubUSoPel.jsbu\",\n  \"password\": \"stringstring\",\n  \"cpf\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 2108,\n  \"name\": \"string\",\n  \"email\": \"vDRjycjV3UhdK@HzVJVbJCJyVfub.hcr\",\n  \"cpf\": \"string\"\n}"
+						},
+						{
+							"name": "Invalid input data",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string\",\n  \"email\": \"j7l6@pBwfEjbeZtrQMprotujjUubUSoPel.jsbu\",\n  \"password\": \"stringstring\",\n  \"cpf\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "User not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string\",\n  \"email\": \"j7l6@pBwfEjbeZtrQMprotujjUubUSoPel.jsbu\",\n  \"password\": \"stringstring\",\n  \"cpf\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8346",
+									"description": "User ID"
+								}
+							]
+						},
+						"description": "Delete a user from the system"
+					},
+					"response": [
+						{
+							"name": "User deleted successfully",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Cannot delete last admin",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "User not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Fighters",
+			"item": [
+				{
+					"name": "List all fighters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/fighters",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"fighters"
+							]
+						},
+						"description": "Get a list of all fighters"
+					},
+					"response": [
+						{
+							"name": "List of fighters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/fighters",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"fighters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 5012,\n    \"name\": \"string\",\n    \"image\": \"string\",\n    \"weightClass\": \"string\",\n    \"nationality\": \"string\",\n    \"specialty\": \"string\",\n    \"record\": \"string\"\n  },\n  {\n    \"id\": 956,\n    \"name\": \"string\",\n    \"image\": \"string\",\n    \"weightClass\": \"string\",\n    \"nationality\": \"string\",\n    \"specialty\": \"string\",\n    \"record\": \"string\"\n  }\n]"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/fighters",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"fighters"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Create fighter",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"string\",\n  \"weightClass\": \"string\",\n  \"nationality\": \"string\",\n  \"specialty\": \"string\",\n  \"record\": \"string\",\n  \"image\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/fighters",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"fighters"
+							]
+						},
+						"description": "Add a new fighter"
+					},
+					"response": [
+						{
+							"name": "Fighter created successfully",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string\",\n  \"weightClass\": \"string\",\n  \"nationality\": \"string\",\n  \"specialty\": \"string\",\n  \"record\": \"string\",\n  \"image\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/fighters",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"fighters"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 4139,\n  \"name\": \"string\",\n  \"image\": \"string\",\n  \"weightClass\": \"string\",\n  \"nationality\": \"string\",\n  \"specialty\": \"string\",\n  \"record\": \"string\"\n}"
+						},
+						{
+							"name": "Invalid input data",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string\",\n  \"weightClass\": \"string\",\n  \"nationality\": \"string\",\n  \"specialty\": \"string\",\n  \"record\": \"string\",\n  \"image\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/fighters",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"fighters"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Update fighter",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"string\",\n  \"image\": \"string\",\n  \"weightClass\": \"string\",\n  \"nationality\": \"string\",\n  \"specialty\": \"string\",\n  \"record\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/fighters/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"fighters",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8346",
+									"description": "Fighter ID"
+								}
+							]
+						},
+						"description": "Update fighter information"
+					},
+					"response": [
+						{
+							"name": "Fighter updated successfully",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string\",\n  \"image\": \"string\",\n  \"weightClass\": \"string\",\n  \"nationality\": \"string\",\n  \"specialty\": \"string\",\n  \"record\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/fighters/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"fighters",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Fighter not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string\",\n  \"image\": \"string\",\n  \"weightClass\": \"string\",\n  \"nationality\": \"string\",\n  \"specialty\": \"string\",\n  \"record\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/fighters/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"fighters",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete fighter",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/fighters/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"fighters",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8346",
+									"description": "Fighter ID"
+								}
+							]
+						},
+						"description": "Delete a fighter from the system"
+					},
+					"response": [
+						{
+							"name": "Fighter deleted successfully",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/fighters/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"fighters",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Fighter not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/fighters/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"fighters",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Search fighters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/fighters/search?name=string&weightClass=string",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"fighters",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "string",
+									"description": "Fighter name to search for"
+								},
+								{
+									"key": "weightClass",
+									"value": "string",
+									"description": "Weight class to filter by"
+								}
+							]
+						},
+						"description": "Search for fighters by name or weight class"
+					},
+					"response": [
+						{
+							"name": "List of matching fighters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/fighters/search?name=string&weightClass=string",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"fighters",
+										"search"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "string",
+											"description": "Fighter name to search for"
+										},
+										{
+											"key": "weightClass",
+											"value": "string",
+											"description": "Weight class to filter by"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 5012,\n    \"name\": \"string\",\n    \"image\": \"string\",\n    \"weightClass\": \"string\",\n    \"nationality\": \"string\",\n    \"specialty\": \"string\",\n    \"record\": \"string\"\n  },\n  {\n    \"id\": 956,\n    \"name\": \"string\",\n    \"image\": \"string\",\n    \"weightClass\": \"string\",\n    \"nationality\": \"string\",\n    \"specialty\": \"string\",\n    \"record\": \"string\"\n  }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		}
+	]
+}

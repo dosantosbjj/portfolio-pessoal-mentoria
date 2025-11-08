@@ -9,6 +9,7 @@
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "install:all": "npm install && cd frontend && npm install",
     "test": "mocha tests/auth.test.js tests/users.test.js tests/fighters.test.js --timeout 10000 --exit",
+    "test:e2e": "npx cypress run --browser electron",
     "test:auth": "mocha tests/auth.test.js --timeout 10000 --exit",
     "test:users": "mocha tests/auth.test.js tests/users.test.js --timeout 10000 --exit",
     "test:fighters": "mocha tests/auth.test.js tests/fighters.test.js --timeout 10000 --exit"

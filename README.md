@@ -64,3 +64,6 @@ A API utiliza autenticação JWT. Para acessar endpoints protegidos, inclua o to
 ```
 Authorization: Bearer seu-token-aqui
 ```
+
+## Documentação
+A documentação dos casos de teste e collection do postman estão na pasta Documentação.
