@@ -1,0 +1,26 @@
+name: Execução da aplicação e testes
+
+on: 
+  [push, pull_request, workflow_dispatch]:
+
+jobs:  
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout no repositório
+        uses: actions/checkout@v4
+
+      - name: Instalando as dependências
+        run: npm run install:all
+
+      - name: Executando API
+        run: npm run dev:backend
+
+      - name: Executando WEB
+        run: npm run dev:frontend
+        
+
+      
+    
+    
+    

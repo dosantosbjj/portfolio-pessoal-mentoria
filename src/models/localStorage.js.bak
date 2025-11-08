@@ -1,0 +1,160 @@
+const fs = require('fs');
+const path = require('path');
+
+const dataFilePath = path.join(__dirname, '../../data/fighters.json');
+
+// Ensure data directory exists
+if (!fs.existsSync(path.dirname(dataFilePath))) {
+  fs.mkdirSync(path.dirname(dataFilePath), { recursive: true });
+}
+
+let data = {
+  users: [],
+  fighters: []
+};
+
+const defaultFighters = [
+  {
+    id: 1,
+    name: 'Anderson Silva',
+    image: 'anderson-silva.jpg',
+    weightClass: 'Middleweight',
+    nationality: 'Brazilian',
+    specialty: 'Striking',
+    record: '34-11-0'
+  },
+  {
+    id: 2,
+    name: 'Georges St-Pierre',
+    image: 'gsp.jpg',
+    weightClass: 'Welterweight',
+    nationality: 'Canadian',
+    specialty: 'Wrestling',
+    record: '26-2-0'
+  },
+  {
+    id: 3,
+    name: 'Khabib Nurmagomedov',
+    image: 'khabib.jpg',
+    weightClass: 'Lightweight',
+    nationality: 'Russian',
+    specialty: 'Wrestling',
+    record: '29-0-0'
+  }
+];
+
+const defaultAdmin = {
+  id: 1,
+  name: 'Admin',
+  email: 'admin@admin.com',
+  password: '$2a$10$X/XfwVxmqoVHvg0uYxB1f.GNRjGcQWm.L5VQ.XJkY4jyW8XmT3WXe', // password: admin123
+  cpf: '12345678900'
+};
+
+const saveData = () => {
+  fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2));
+};
+
+const loadData = () => {
+  try {
+    if (fs.existsSync(dataFilePath)) {
+      const fileContent = fs.readFileSync(dataFilePath, 'utf8');
+      data = JSON.parse(fileContent);
+    }
+  } catch (error) {
+    console.error('Error loading data:', error);
+  }
+};
+
+const initializeDefaultData = () => {
+  loadData();
+  if (data.fighters.length === 0) {
+    data.fighters = defaultFighters;
+  }
+  if (data.users.length === 0) {
+    data.users = [defaultAdmin];
+  }
+  saveData();
+};
+
+const getUsers = () => {
+  loadData();
+  return data.users;
+};
+
+const getFighters = () => {
+  loadData();
+  return data.fighters;
+};
+
+const addUser = (user) => {
+  loadData();
+  data.users.push(user);
+  saveData();
+};
+
+const addFighter = (fighter) => {
+  loadData();
+  data.fighters.push(fighter);
+  saveData();
+};
+
+const updateFighter = (id, updatedFighter) => {
+  loadData();
+  const index = data.fighters.findIndex(f => f.id === id);
+  if (index !== -1) {
+    data.fighters[index] = { ...data.fighters[index], ...updatedFighter };
+    saveData();
+    return true;
+  }
+  return false;
+};
+
+const deleteFighter = (id) => {
+  loadData();
+  const initialLength = data.fighters.length;
+  data.fighters = data.fighters.filter(f => f.id !== id);
+  if (data.fighters.length !== initialLength) {
+    saveData();
+    return true;
+  }
+  return false;
+};
+
+const findFighterByName = (name) => {
+  loadData();
+  return data.fighters.filter(f => 
+    f.name.toLowerCase().includes(name.toLowerCase())
+  );
+};
+
+const findFightersByWeightClass = (weightClass) => {
+  loadData();
+  return data.fighters.filter(f => 
+    f.weightClass.toLowerCase() === weightClass.toLowerCase()
+  );
+};
+
+const findUserByEmail = (email) => {
+  loadData();
+  return data.users.find(u => u.email === email);
+};
+
+const findUserByCpf = (cpf) => {
+  loadData();
+  return data.users.find(u => u.cpf === cpf);
+};
+
+module.exports = {
+  initializeDefaultData,
+  getUsers,
+  getFighters,
+  addUser,
+  addFighter,
+  updateFighter,
+  deleteFighter,
+  findFighterByName,
+  findFightersByWeightClass,
+  findUserByEmail,
+  findUserByCpf
+};
